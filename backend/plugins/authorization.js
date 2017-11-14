@@ -28,7 +28,8 @@ export function PlotlyOAuth(electron) {
         if (!getSetting('AUTH_ENABLED')) {
             return next();
         }
-
+        Logger.log('request headers:=================================================');
+        Logger.log(req.headers);
         // Auth is disabled for certain urls:
         if (ESCAPED_ROUTES.some(path.match.bind(path))) {
             return next();
